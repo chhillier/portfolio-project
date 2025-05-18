@@ -8,7 +8,7 @@ PRAGMA foreign_keys = ON;
 
 CREATE TABLE player (
 player_id INTEGER NOT NULL,
-gsid_id VARCHAR,
+gsis_id VARCHAR,
 first_name VARCHAR NOT NULL,
 last_name VARCHAR NOT NULL,
 position VARCHAR NOT NULL,
