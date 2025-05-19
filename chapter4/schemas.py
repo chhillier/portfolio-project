@@ -38,6 +38,14 @@ class Team(TeamBase):
     last_changed_date : date
     teams: List[TeamBase] = []
 
+class League(BaseModel):
+    model_config = ConfigDict(from_attributes= True)
+    league_id : int
+    league_name : str
+    scoring_type : str
+    last_changed_date : date
+    teams: List[TeamBase] = []
+
 class Counts(BaseModel):
     league_count : int
     team_count : int
