@@ -66,10 +66,11 @@ def test_read_teams_for_one_league():
 
 # test the count functions
 def test_counts():
-    response = client.get("v0/counts/")
+    response = client.get("/v0/counts/")
     response_data = response.json()
     assert response.status_code == 200
     assert response_data["league_count"] == 5
+    
 
 
 

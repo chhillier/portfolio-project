@@ -12,7 +12,7 @@ class Player(Base):
     first_name = Column(String, nullable = False)
     last_name = Column(String, nullable = False)
     position = Column(String, nullable=False)
-    last_changed_date = Column(String, nullable = False)
+    last_changed_date = Column(Date, nullable = False)
 
     performances = relationship("Performance", back_populates="player")
 
