@@ -19,7 +19,7 @@ def test_read_players_by_name():
     response = client.get("/v0/players/?first_name=Bryce&last_name=Young")
     assert response.status_code == 200
     assert len(response.json()) == 1
-    assert response.json()[0].get("player_id") == 1001
+    assert response.json()[0].get("player_id") == 2009
 
 # test /v0/players/{player_id}/
 

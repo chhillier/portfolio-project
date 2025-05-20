@@ -1,6 +1,6 @@
 """Pydantic schemas"""
 from pydantic import BaseModel, ConfigDict
-from typing import List
+from typing import List, Optional
 from datetime import date
 
 class Performance(BaseModel):
@@ -13,10 +13,11 @@ class Performance(BaseModel):
 
 class PlayerBase(BaseModel):
     model_config = ConfigDict(from_attributes=True)
-    performance_id : int
     player_id : int
-    week_number : str
-    fantasy_points : float
+    gsis_id : Optional[str] = None
+    first_name : str
+    last_name : str
+    position : str
     last_changed_date : date
 
 class Player(PlayerBase):
@@ -28,15 +29,11 @@ class TeamBase(BaseModel):
     league_id : int
     team_id : int
     team_name : str
-    last_changed_date : str
+    last_changed_date : date
 
 class Team(TeamBase):
     model_config = ConfigDict(from_attributes= True)
-    league_id : int
-    league_name : str
-    scoring_type : str
-    last_changed_date : date
-    teams: List[TeamBase] = []
+    players: List[PlayerBase] = []
 
 class League(BaseModel):
     model_config = ConfigDict(from_attributes= True)
